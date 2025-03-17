@@ -37,8 +37,8 @@ watch(() => searchQuery.value, (newVal: string) => {
                 :selectedItemName="props.selectedItem.name" 
                 :selectedItemTitle="props.itemTitle" 
                 @update-show-items-list="showItemsList = !showItemsList"></ItemSelected>
-    <div v-if="showItemsList" class="countries-search">
-        <div v-if="props.showSearchQuery" class="countries-search__input" >
+    <div v-if="showItemsList" class="items-search">
+        <div v-if="props.showSearchQuery" class="items-search__input" >
             <img src="/search_icon.svg" alt="">
             <input v-model="searchQuery" 
                 placeholder="Поиск"
@@ -48,13 +48,13 @@ watch(() => searchQuery.value, (newVal: string) => {
     </div>
 </template>
 <style lang="scss" scoped>
-    .countries-search {
+    .items-search {
         position: absolute;
         width: 100%;
         top: 60px;
         background-color: white;
         border-radius: 4px;
-        padding: 16px;
+        padding-block: 8px;
         box-shadow: 0px 3px 14px 2px rgba(0, 0, 0, 0.1215686275);
         z-index: 1;
 
@@ -66,6 +66,7 @@ watch(() => searchQuery.value, (newVal: string) => {
             padding: 9px 10px;
             background-color: #F8F8F8;
             margin-bottom: 16px;
+            margin-inline: 16px;
             
             input {
                 border: 0;

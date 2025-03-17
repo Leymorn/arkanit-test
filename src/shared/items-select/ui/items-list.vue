@@ -24,6 +24,7 @@ const { t } = useI18n();
                 class="items-list__item__flag"
                 :src="`https://flagcdn.com/w40/${item.code.toLowerCase()}.png`" 
                 :alt="item.code" />
+            <img class="items-list__item__flag" v-if="'image_url' in item" :src="item.image_url" alt="">
             <div class="items-list__item__name">{{ item.name }}</div>
             <div v-if="'dial_code' in item" class="items-list__item__code">{{ item.dial_code }}</div>
         </div>
@@ -40,6 +41,7 @@ const { t } = useI18n();
     overflow: auto;
 
     &__item {
+        cursor: pointer;
         display: flex;
         align-items: center;
         gap: 10px;
