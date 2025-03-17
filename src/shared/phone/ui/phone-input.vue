@@ -64,10 +64,6 @@ watch(() => phone.value, (newVal: number | '') => {
             color: v-bind(color);
         }
 
-        &__code {
-
-        }
-
         input[type="number"] {
             border: 0;
             width: 100%;
