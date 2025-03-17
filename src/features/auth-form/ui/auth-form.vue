@@ -32,7 +32,8 @@ const updateSelectedChannel = (newChannel: IClientChanel) => {
         <header class="auth-form__title">{{ authModel.createPhoneData.value.session_id === 'none' ? t('authFormTitle') : t('enterCode')}}</header>
         <div class="auth-form__subtitle">{{ authModel.createPhoneData.value.session_id === 'none' ? t('authFormSubtitle') : t('sentByNumber') + ' ' + `${phoneModel.phoneNumber.value}` }}</div>
         <CreatePhone v-if="authModel.createPhoneData.value.session_id === 'none'" 
-                    @update-create-phone-data="v => authModel.createPhoneData.value = v"></CreatePhone>
+                    @update-create-phone-data="v => authModel.createPhoneData.value = v"
+                    @update-phone-number="v => phoneModel.phoneNumber.value = v"></CreatePhone>
         <SendCode v-else 
                 @update-session-id="v => authModel.createPhoneData.value.session_id = v"
                 :client-channels="authModel.createPhoneData.value.client_channels"

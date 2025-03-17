@@ -16,6 +16,7 @@ const inputErrorModel = useInputErrorModel();
 
 const emit = defineEmits<{
     'update-create-phone-data': [CreatePhoneResponseData]
+    'update-phone-number': [string]
 }>()
 
 const submitAuthFormPhone = async () => {
@@ -29,6 +30,7 @@ const submitAuthFormPhone = async () => {
     }
 
     const response = await authModel.fetchCreatePhone(phone);
+    emit('update-phone-number', phone);
     
     if(response.success) {
         emit('update-create-phone-data', response.data);
@@ -41,6 +43,7 @@ const submitAuthFormPhone = async () => {
 
 const updatePhoneNumber = (number: string) => {
     phoneModel.phoneNumber.value = number;
+   
     inputErrorModel.inputError.error = false;
     inputErrorModel.inputError.text = '';
 }
